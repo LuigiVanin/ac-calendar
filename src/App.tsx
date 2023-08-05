@@ -1,8 +1,9 @@
 import "./App.css";
 import { css } from "../stitches.config";
-import { Props } from "./types/props";
-import React, { useContext } from "react";
 import { ThemeContext } from "./context/ThemeContext";
+import { Text } from "./components/typography/Typography";
+import { useContext } from "react";
+import { Month } from "./helpers/calendar";
 
 const button = css({
     backgroundColor: "$loContrast",
@@ -11,23 +12,18 @@ const button = css({
     color: "$hiContrast",
 });
 
-const text = css({
-    color: "$hiContrast",
-    fontSize: "$4",
-});
-
-const Text: React.FC<Props> = ({ children }) => {
-    return <span className={text()}>{children}</span>;
-};
-
 const wrapper = css({
     width: "100%",
     minHeight: "100vh",
     backgroundColor: "$loContrast",
+    display: "flex",
+    flexDirection: "column",
 });
 
 function App() {
     const { theme, cycleTheme } = useContext(ThemeContext);
+
+    const month = Month.CurrentMonth();
 
     return (
         <div className={wrapper()}>
@@ -35,7 +31,10 @@ function App() {
             <button className={button()} onClick={() => cycleTheme()}>
                 <span>Botão</span>
             </button>
-            <Text>Teste</Text>
+            {month.days.map((day) => {
+                return <Text>{day.getDay()}</Text>;
+            })}
+            _
         </div>
     );
 }
