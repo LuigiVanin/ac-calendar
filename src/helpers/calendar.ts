@@ -1,31 +1,41 @@
 import moment from "moment";
 
-interface IDay {
+interface ICalendarUnit {
     getMonth(): number;
     getDay(): number;
     getWeekday(): number;
     getCurrentDiffDays(day?: Date): number;
 }
 
+type StringDateFormat = `${string}-${string}-${string}`;
+
 export interface Member {
     name: string;
     nickname: string;
-    birthday: `${number}-${number}-${number}`;
+    birthday: StringDateFormat;
     email: string;
     phone: string;
 }
 
-export abstract class AbstractDay implements IDay {
+export abstract class CalendarUnit implements ICalendarUnit {
     month: number;
     day: number;
-    weekday: number;
+    weekday: { idx: number; name: string; abreviation: string };
     date: moment.Moment;
 
-    constructor(date: `${number}-${number}-${number}`) {
+    constructor(date: StringDateFormat) {
         this.date = moment(date);
-        this.month = this.date.month();
+        // NOTE: Take this with a grain of salt, but momentjs is a bit weird
+        //       months start with 0, so january is 0 and december is 11. To set
+        //       I am starting with 1 to 12, so I am adding 1 to the month that
+        //       get from momentjs.
+        this.month = this.date.month() + 1;
         this.day = this.date.date();
-        this.weekday = this.date.weekday();
+        this.weekday = {
+            idx: this.date.weekday(),
+            name: this.date.format("dddd"),
+            abreviation: this.date.format("ddd"),
+        };
     }
 
     getMonth() {
@@ -37,7 +47,7 @@ export abstract class AbstractDay implements IDay {
     }
 
     getWeekday() {
-        return this.weekday;
+        return this.weekday.idx;
     }
 
     getCurrentDiffDays(day?: Date) {
@@ -47,7 +57,7 @@ export abstract class AbstractDay implements IDay {
     }
 }
 
-export class Birthday extends AbstractDay {
+export class Birthday extends CalendarUnit {
     private member: Member;
     constructor(member: Member) {
         super(member.birthday);
@@ -65,10 +75,10 @@ export class Birthday extends AbstractDay {
     }
 }
 
-export class Day extends AbstractDay {
+export class Day extends CalendarUnit {
     birtdays: Birthday[] = [];
 
-    constructor(date: `${number}-${number}-${number}`) {
+    constructor(date: StringDateFormat) {
         super(date);
         this.birtdays = [];
     }
@@ -88,14 +98,28 @@ export class Day extends AbstractDay {
     }
 }
 
-export class Month {
+const leftPad = (num: number, size: number) => {
+    const s = String(num);
+    return s.padStart(size, "0");
+};
+
+export class Month extends CalendarUnit {
     days: Day[] = [];
 
     constructor(month: number, year: number) {
-        const date = moment(`${year}-${month}-01`);
+        const formattedDate: StringDateFormat = `${year}-${leftPad(
+            month,
+            2
+        )}-01`;
+        super(formattedDate);
+        const date = moment(formattedDate);
+
         const daysInMonth = date.daysInMonth();
         for (let i = 1; i <= daysInMonth; i++) {
-            this.days.push(new Day(`${year}-${month}-${i}`));
+            const day = new Day(
+                `${year}-${leftPad(month, 2)}-${leftPad(i, 2)}`
+            );
+            this.days.push(day);
         }
     }
 
@@ -109,6 +133,7 @@ export class Month {
         const date = new Date();
         const month = date.getMonth() + 1;
         const year = date.getFullYear();
-        return new Month(month, year);
+        const m = new Month(month, year);
+        return m;
     }
 }

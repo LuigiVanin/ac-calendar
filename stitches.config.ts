@@ -13,6 +13,13 @@ export const {
         fonts: {
             system: "system-ui",
         },
+        radii: {
+            sx: "2px",
+            sm: "5px",
+            md: "10px",
+            lg: "15px",
+            rounded: "50%",
+        },
         space: {
             sx: "2px",
             sm: "5px",
