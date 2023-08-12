@@ -55,6 +55,10 @@ export abstract class CalendarUnit implements ICalendarUnit {
         const date1 = moment(today);
         return date1.diff(moment(this.date), "days");
     }
+
+    get name() {
+        return this.date.format("MMMM");
+    }
 }
 
 export class Birthday extends CalendarUnit {

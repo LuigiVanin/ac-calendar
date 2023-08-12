@@ -3,19 +3,9 @@ import "./App.css";
 import { css } from "../stitches.config";
 import { ThemeContext } from "./context/ThemeContext";
 import { Text } from "./components/typography/Typography";
-import { useContext, useEffect, useState } from "react";
-// import { Month } from "./helpers/calendar";
-import { CalendarContext } from "./context/CalendarContext";
-import { Month } from "./helpers/calendar";
-
-const button = css({
-    backgroundColor: "$hiContrast",
-    paddingInline: "$sm",
-    paddingBlock: "$sm",
-    color: "$loContrast",
-    borderRadius: "$sm",
-    border: "none",
-});
+import { useContext } from "react";
+import { useCalendar } from "./hooks/useCalendar";
+import { Button } from "./components/button/Button";
 
 const wrapper = css({
     width: "100%",
@@ -24,44 +14,43 @@ const wrapper = css({
     display: "flex",
     flexDirection: "column",
     gap: "$xl",
+    ul: {
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+
+        li: {
+            width: "20%",
+        },
+    },
 });
 
 function App() {
     const { theme, cycleTheme } = useContext(ThemeContext);
-    const {
-        month: monthCount,
-        changeMonthLeft,
-        changeMonthRight,
-    } = useContext(CalendarContext);
-
-    const [month, setMonth] = useState(() => new Month(monthCount, 2023));
-    month;
-    useEffect(() => {
-        setMonth(new Month(monthCount, 2023));
-    }, [monthCount]);
+    const { month, changeMonthLeft, changeMonthRight } = useCalendar();
 
     return (
         <div className={wrapper()}>
-            {monthCount}
+            <Text>{month.name}</Text>
             <Text>{theme}</Text>
-            <button className={button()} onClick={() => cycleTheme()}>
+            <Button onClick={() => cycleTheme()}>
                 <span>Botão</span>
-            </button>
-            <div className="button-group">
-                <button className={button()} onClick={() => changeMonthLeft()}>
-                    Left
-                </button>
-                <button className={button()} onClick={() => changeMonthRight()}>
-                    Right
-                </button>
+            </Button>
+            <div className="Button-group">
+                <Button onClick={() => changeMonthLeft()}>Left</Button>
+                <Button onClick={() => changeMonthRight()}>Right</Button>
             </div>
-            {month.days.map((day) => {
-                return (
-                    <Text key={day.day}>
-                        {day.getDay()}-{day.weekday.name}
-                    </Text>
-                );
-            })}
+            <ul>
+                {month.days.map((day) => {
+                    return (
+                        <li key={day.day}>
+                            <Text>
+                                {day.getDay()}-{day.weekday.name}
+                            </Text>
+                        </li>
+                    );
+                })}
+            </ul>
         </div>
     );
 }

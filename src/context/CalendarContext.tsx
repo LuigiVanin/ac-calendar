@@ -1,6 +1,5 @@
 import { createContext, useState } from "react";
 import { Props } from "../types/props";
-import { Month } from "../helpers/calendar";
 
 interface ICalendarContext {
     month: number;
@@ -26,5 +25,3 @@ export const CalendarProvider: React.FC<Props> = ({ children }) => {
         </CalendarContext.Provider>
     );
 };
-
-export const useCalendar = () => {};
