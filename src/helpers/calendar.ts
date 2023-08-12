@@ -1,9 +1,15 @@
 import moment from "moment";
 
+interface IWeekday {
+    idx: number;
+    name: string;
+    abreviation: string;
+}
+
 interface ICalendarUnit {
     getMonth(): number;
     getDay(): number;
-    getWeekday(): number;
+    getWeekday(): IWeekday;
     getCurrentDiffDays(day?: Date): number;
 }
 
@@ -18,9 +24,9 @@ export interface Member {
 }
 
 export abstract class CalendarUnit implements ICalendarUnit {
-    month: number;
-    day: number;
-    weekday: { idx: number; name: string; abreviation: string };
+    protected month: number;
+    protected day: number;
+    protected weekday: IWeekday;
     date: moment.Moment;
 
     constructor(date: StringDateFormat) {
@@ -47,7 +53,7 @@ export abstract class CalendarUnit implements ICalendarUnit {
     }
 
     getWeekday() {
-        return this.weekday.idx;
+        return this.weekday;
     }
 
     getCurrentDiffDays(day?: Date) {
