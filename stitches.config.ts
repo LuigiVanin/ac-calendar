@@ -36,7 +36,7 @@ export const {
             "9xl": "60px",
         },
         colors: {
-            hiContrast: "black",
+            hiContrast: "#222",
             loContrast: "white",
         },
         fontSizes: {
@@ -53,7 +53,7 @@ export const {
 
 export const light = createTheme("light-theme", {
     colors: {
-        hiContrast: "black",
+        hiContrast: "#222",
         loContrast: "white",
     },
 });
@@ -61,7 +61,7 @@ export const light = createTheme("light-theme", {
 export const dark = createTheme("dark-theme", {
     colors: {
         hiContrast: "white",
-        loContrast: "black",
+        loContrast: "#222",
     },
 });
 
