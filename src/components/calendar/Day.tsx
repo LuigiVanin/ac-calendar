@@ -27,7 +27,9 @@ const dayUnit = css({
 export const CalendarDay: React.FC<DayProps> = ({ day }) => {
     return (
         <span className={dayUnit()}>
-            <Text css={{ fontWeight: "bold" }}>{day.getDay()}</Text>
+            <Text css={{ fontWeight: "bold" }} fontSizes="3xl">
+                {day.getDay()}
+            </Text>
             <Text fontSizes={"lg"}>{day.getWeekday().abreviation}</Text>
         </span>
     );
