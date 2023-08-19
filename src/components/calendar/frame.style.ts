@@ -33,21 +33,22 @@ export const calendarFrame = css({
     boxShadow: "rgba(15, 15, 15, 0.2) 0px 0px 15px",
     overflow: "hidden",
 
-    "&:after": {
-        content: "",
-        position: "absolute",
-        height: "150%",
-        width: "150%",
-        borderRadius: "$lg",
-        opacity: "1",
-        background:
-            "linear-gradient(to top left, transparent 20%, rgba(255, 255, 255, 0.80), transparent 80%)",
-        // "linear-gradient(to top left, transparent 35%, red, transparent 75%)",
+    // "&:after": {
+    //     content: "",
+    //     position: "absolute",
+    //     height: "150%",
+    //     width: "150%",
+    //     borderRadius: "$lg",
+    //     opacity: "1",
+    //     pointerEvents: "none",
+    //     background:
+    //         "linear-gradient(to top left, transparent 20%, rgba(255, 255, 255, 0.80), transparent 80%)",
+    //     // "linear-gradient(to top left, transparent 35%, red, transparent 75%)",
 
-        left: "0px",
-        bottom: "0px",
-        animation: `${shineEffect} 1000ms`,
-        animationIterationCount: "infinite",
-        animationTimingFunction: "cubic-bezier(0,.93,.32,.52)",
-    },
+    //     left: "0px",
+    //     bottom: "0px",
+    //     animation: `${shineEffect} 1000ms`,
+    //     animationIterationCount: "infinite",
+    //     animationTimingFunction: "cubic-bezier(0,.93,.32,.52)",
+    // },
 });

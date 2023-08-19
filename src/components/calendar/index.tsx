@@ -1,9 +1,9 @@
-import { Button } from "../button/Button";
 import { useCalendar } from "../../hooks/useCalendar";
 import { CalendarFrame } from "./Frame";
 import { CalendarDay } from "./Day";
 import { css } from "../../../stitches.config";
-import React from "react";
+import React, { ReactElement } from "react";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const ul = css({
     display: "grid",
@@ -32,17 +32,18 @@ const ul = css({
 });
 
 interface CalendarProps {
-    header: Element;
+    header: Element | ReactElement;
 }
 
 export const Calendar: React.FC<CalendarProps> = ({ header }) => {
-    const { month, changeMonthLeft, changeMonthRight } = useCalendar();
+    const { month } = useCalendar();
+    const [parent] = useAutoAnimate();
 
     return (
         <CalendarFrame>
             {header}
 
-            <ul className={ul()}>
+            <ul className={ul()} ref={parent}>
                 {month.days.map((date) => {
                     return (
                         <li key={date.getDay()}>
