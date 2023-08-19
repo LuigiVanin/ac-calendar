@@ -4,4 +4,4 @@ export interface Props {
     children?: any;
 }
 
-export type DayProps = Props & { day: Day };
+export type DayProps = Props & { day: Day; selected?: boolean };

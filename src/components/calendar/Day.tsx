@@ -1,10 +1,24 @@
+import moment from "moment";
 import { DayProps } from "../../types/props";
 import { Text } from "../typography";
 import { dayUnit } from "./day";
+import { useMemo } from "react";
 
 export const CalendarDay: React.FC<DayProps> = ({ day }) => {
+    const isToday = useMemo(() => day.date.isSame(moment(), "day"), [day]);
+    const variant = useMemo(() => {
+        if (day.birthdays.length) {
+            return "birthday";
+        }
+        if (isToday) {
+            return "today";
+        } else {
+            return "default";
+        }
+    }, [isToday]);
+
     return (
-        <span className={dayUnit()}>
+        <span className={dayUnit({ color: variant })}>
             <Text css={{ fontWeight: "bold" }} fontSizes="3xl">
                 {day.getDay()}
             </Text>

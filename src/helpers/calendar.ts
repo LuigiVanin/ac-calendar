@@ -85,16 +85,41 @@ export class Birthday extends CalendarUnit {
     }
 }
 
+export const birthdays: Birthday[] = [
+    new Birthday({
+        name: "Luis Felipe Vanin",
+        nickname: "Vanin",
+        birthday: "1999-09-20",
+        email: "vanin@gmail.com",
+        phone: "999999999",
+    }),
+    new Birthday({
+        name: "Pedro Felix Lucena",
+        nickname: "Bellix",
+        birthday: "1999-08-19",
+        email: "pedrorola@gmail.com",
+        phone: "999999999",
+    }),
+];
+
 export class Day extends CalendarUnit {
-    birtdays: Birthday[] = [];
+    birthdays: Birthday[] = [];
 
     constructor(date: StringDateFormat) {
         super(date);
-        this.birtdays = [];
+        this.birthdays = [];
+        birthdays.forEach((b) => {
+            console.log("ANIVERSARIOS: ", b.getDay(), b.getMonth());
+            console.log("DIAS: ", this.date.date(), this.date.month());
+
+            if (b.date.isSame(this.date, "day")) {
+                this.birthdays.push(b);
+            }
+        });
     }
 
     addBirthday(birthday: Birthday) {
-        this.birtdays.push(birthday);
+        this.birthdays.push(birthday);
     }
 
     getCurrentDiffDays(day?: Date) {
@@ -104,7 +129,7 @@ export class Day extends CalendarUnit {
     }
 
     getBirthdays() {
-        return this.birtdays;
+        return this.birthdays;
     }
 }
 
