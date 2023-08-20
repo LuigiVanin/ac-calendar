@@ -1,4 +1,4 @@
-import { Month } from "../helpers/calendar";
+import { Month } from "../modules/calendar";
 import { CalendarContext } from "./../context/CalendarContext";
 import { useContext, useEffect, useState } from "react";
 

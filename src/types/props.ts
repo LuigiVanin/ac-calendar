@@ -1,4 +1,4 @@
-import { Day } from "../helpers/calendar";
+import { Day } from "../modules/calendar";
 
 export interface Props {
     children?: any;
