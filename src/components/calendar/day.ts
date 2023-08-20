@@ -14,11 +14,25 @@ export const dayUnit = css({
     transitionDuration: "200ms",
     transitionTimingFunction: "ease-in-out",
     background: "$secondaryColor",
+    position: "relative",
     "&:hover": {
         background: "$darkerSecondaryColor",
     },
     p: {
         marginTop: "0px",
+    },
+    ul: {
+        position: "absolute",
+        right: "5px",
+        top: "5px",
+        width: "auto",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+
+        li: {
+            height: "15px",
+        },
     },
     variants: {
         color: {
