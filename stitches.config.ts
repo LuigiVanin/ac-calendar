@@ -38,6 +38,8 @@ export const {
         colors: {
             hiContrast: "#222",
             loContrast: "white",
+            secondaryColor: "#f4f4f4",
+            darkerSecondaryColor: "#e2e2e2",
         },
         fontSizes: {
             1: "0.5rem",
@@ -55,6 +57,8 @@ export const light = createTheme("light-theme", {
     colors: {
         hiContrast: "#222",
         loContrast: "white",
+        secondaryColor: "#f4f4f4",
+        darkerSecondaryColor: "#e2e2e2",
     },
 });
 
@@ -62,6 +66,8 @@ export const dark = createTheme("dark-theme", {
     colors: {
         hiContrast: "white",
         loContrast: "#222",
+        secondaryColor: "rgb(50, 50, 50)",
+        darkerSecondaryColor: "#121212",
     },
 });
 

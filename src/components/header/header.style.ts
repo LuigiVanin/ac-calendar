@@ -7,6 +7,9 @@ export const header = css({
     alignItems: "center",
     justifyContent: "space-between",
     paddingInline: "$2xl",
+    borderBottom: "3px solid rgba(234, 234, 234, 0.3)",
+    backdropFilter: "blur(30px)",
+
     nav: {
         display: "flex",
         gap: "$lg",

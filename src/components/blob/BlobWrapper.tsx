@@ -19,11 +19,16 @@ interface Position {
     top: `${number}${"px" | "%" | "vh"}`;
 }
 
-interface BlobWrapperProps extends Partial<Position>, Props {}
+interface BlobWrapperProps extends Partial<Position>, Props {
+    delay?: number;
+    duration?: number;
+}
 
 export const BlobWrapper: React.FC<BlobWrapperProps> = ({
-    right = "100px",
-    top = "150px",
+    right = "125px",
+    top = "80px",
+    delay = 0,
+    duration = 20,
 }) => {
     return (
         <div
@@ -34,7 +39,7 @@ export const BlobWrapper: React.FC<BlobWrapperProps> = ({
                 },
             })}
         >
-            <SimpleBlob />
+            <SimpleBlob delay={delay} duration={duration} />
         </div>
     );
 };

@@ -1,20 +1,20 @@
 import { createContext, useState } from "react";
-import { light, dark, fun } from "../../stitches.config";
+import { light, dark } from "../../stitches.config";
 import React from "react";
 import { Props } from "../types/props";
-
-type ThemeName = "light" | "dark" | "fun";
 
 interface IThemeContext {
     cycleTheme: () => void;
     theme: ThemeName;
 }
 
-const themesLUT: Record<ThemeName, string> = {
+const themesLUT = {
     light: light.className,
     dark: dark.className,
-    fun: fun.className,
-};
+    // fun: fun.className,
+} as const;
+
+type ThemeName = keyof typeof themesLUT;
 
 export const ThemeContext = createContext({} as IThemeContext);
 

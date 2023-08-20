@@ -13,9 +13,9 @@ export const dayUnit = css({
     transition: "all",
     transitionDuration: "200ms",
     transitionTimingFunction: "ease-in-out",
-    background: "#f2f2f2",
+    background: "$secondaryColor",
     "&:hover": {
-        background: "#e2e2e2",
+        background: "$darkerSecondaryColor",
     },
     p: {
         marginTop: "0px",
@@ -34,10 +34,10 @@ export const dayUnit = css({
                 },
             },
             default: {
-                background: "#f2f2f2",
+                background: "$secondaryColor",
 
                 "&:hover": {
-                    background: "#e2e2e2",
+                    background: "$darkerSecondaryColor",
                 },
             },
             birthday: {

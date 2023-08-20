@@ -1,7 +1,16 @@
+import React from "react";
 import { blob } from "./blob.style";
 import { motion } from "framer-motion";
 
-export const SimpleBlob = () => {
+interface BlobProps {
+    delay: number;
+    duration: number;
+}
+
+export const SimpleBlob: React.FC<BlobProps> = ({
+    delay = 0,
+    duration = 20,
+}) => {
     return (
         <motion.div
             className={blob()}
@@ -12,7 +21,8 @@ export const SimpleBlob = () => {
             }}
             transition={{
                 repeat: Infinity,
-                duration: 20,
+                duration,
+                delay: delay,
             }}
         />
     );

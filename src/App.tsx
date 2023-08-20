@@ -1,9 +1,6 @@
 import "./reset.css";
 import "./App.css";
 import { Calendar } from "./components/calendar";
-import { ThemeContext } from "./context/ThemeContext";
-import { useContext } from "react";
-import { Button } from "./components/button/Button";
 import { css } from "../stitches.config";
 import { BlobWrapper } from "./components/blob/BlobWrapper";
 import { CalendarHeader } from "./components/calendar/Header";
@@ -23,7 +20,7 @@ const layout = css({
         flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "center",
-        gap: "25px",
+        gap: "65px",
         width: "100%",
         minHeight: "100vh",
         zIndex: 10,
@@ -32,12 +29,10 @@ const layout = css({
 });
 
 const App = () => {
-    const { cycleTheme } = useContext(ThemeContext);
-
     return (
         <div className={layout()}>
-            <BlobWrapper />
-            <BlobWrapper right="80vw" top="70vh" />
+            <BlobWrapper duration={25} />
+            <BlobWrapper right="75vw" top="70vh" delay={2} duration={9} />
             <div className="layout__content">
                 <Header />
 

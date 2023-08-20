@@ -5,7 +5,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { Button } from "../button/Button";
 
 export const Header = () => {
-    const { cycleTheme } = useContext(ThemeContext);
+    const { cycleTheme, theme } = useContext(ThemeContext);
 
     return (
         <header className={header()}>
@@ -84,9 +84,12 @@ export const Header = () => {
                             stroke-width="32"
                         />
                     </svg>
-                    <span>Botão</span>
+                    <span>{theme}</span>
                 </Button>
-                <a href="https://github.com/LuigiVanin/ac-calendar">
+                <a
+                    href="https://github.com/LuigiVanin/ac-calendar"
+                    target="_blank"
+                >
                     <svg
                         width="22px"
                         height="22px"
