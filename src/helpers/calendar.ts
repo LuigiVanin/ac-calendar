@@ -109,10 +109,10 @@ export class Day extends CalendarUnit {
         super(date);
         this.birthdays = [];
         birthdays.forEach((b) => {
-            console.log("ANIVERSARIOS: ", b.getDay(), b.getMonth());
-            console.log("DIAS: ", this.date.date(), this.date.month());
-
-            if (b.date.isSame(this.date, "day")) {
+            if (
+                b.getDay() === this.getDay() &&
+                b.getMonth() === this.getMonth()
+            ) {
                 this.birthdays.push(b);
             }
         });

@@ -46,7 +46,7 @@ export const Calendar: React.FC<CalendarProps> = ({ header }) => {
             <ul className={ul()} ref={parent}>
                 {month.days.map((date) => {
                     return (
-                        <li key={date.getDay()}>
+                        <li key={`${date.getDay()}-${date.getMonth()}`}>
                             <CalendarDay day={date} />
                         </li>
                     );

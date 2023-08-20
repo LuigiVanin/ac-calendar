@@ -2,13 +2,13 @@ import { css } from "../../../stitches.config";
 
 export const button = css({
     backgroundColor: "$hiContrast",
-    paddingInline: "$sm",
+    paddingInline: "$md",
     paddingBlock: "$sm",
     color: "$loContrast",
     borderRadius: "$sm",
     border: "none",
     cursor: "pointer",
-
+    gap: "$sm",
     variants: {
         size: {
             sm: {
