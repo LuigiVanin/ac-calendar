@@ -1,21 +1,21 @@
 import { keyframes } from "@stitches/core";
 import { css } from "../../../stitches.config";
 
-const shineEffect = keyframes({
-    "0%": {
-        left: "65%",
-        bottom: "-65%",
-        opacity: "1",
-    },
-    "75%": {
-        opacity: "0",
-    },
-    "100%": {
-        left: "-75%",
-        bottom: "65%",
-        opacity: "0",
-    },
-});
+// const shineEffect = keyframes({
+//     "0%": {
+//         left: "65%",
+//         bottom: "-65%",
+//         opacity: "1",
+//     },
+//     "75%": {
+//         opacity: "0",
+//     },
+//     "100%": {
+//         left: "-75%",
+//         bottom: "65%",
+//         opacity: "0",
+//     },
+// });
 
 export const calendarFrame = css({
     width: "100%",

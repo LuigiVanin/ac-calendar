@@ -17,22 +17,19 @@ export const CalendarDay: React.FC<DayProps> = ({ day }) => {
         } else {
             return "default";
         }
-    }, [isToday]);
+    }, [isToday, day.birthdays.length]);
 
     const birthdaysAvatar = useMemo(
         () => day.getBirthdays().map((birthday) => birthday.getPerson().avatar),
-        [day.getBirthdays()]
+        [day]
     );
 
-    const haveBirthdays = useMemo(
-        () => !!day.getBirthdays().length,
-        [day.getBirthdays()]
-    );
+    const haveBirthdays = useMemo(() => !!day.getBirthdays().length, [day]);
     return (
         <span className={dayUnit({ color: variant })}>
             {haveBirthdays && (
                 <ul>
-                    <li className="day__user-badge">
+                    <li>
                         <Avatar avatar={birthdaysAvatar[0]} />
                     </li>
                 </ul>
