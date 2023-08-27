@@ -12,13 +12,13 @@ export const button = css({
     variants: {
         size: {
             sm: {
-                height: "15px",
-            },
-            md: {
                 height: "25px",
             },
+            md: {
+                height: "40px",
+            },
             lg: {
-                height: "35px",
+                height: "55px",
             },
         },
     },

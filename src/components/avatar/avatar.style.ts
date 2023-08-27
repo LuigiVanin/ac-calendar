@@ -12,4 +12,39 @@ export const avatarStyle = css({
     img: {
         objectFit: "cover",
     },
+
+    variants: {
+        size: {
+            sm: {
+                maxHeight: "30px",
+            },
+            md: {
+                maxHeight: "45px",
+            },
+            lg: {
+                maxHeight: "60px",
+            },
+            xl: {
+                maxHeight: "75px",
+            },
+            "2xl": {
+                maxHeight: "90px",
+            },
+            "3xl": {
+                maxHeight: "105px",
+            },
+            "4xl": {
+                maxHeight: "120px",
+            },
+            "5xl": {
+                maxHeight: "135px",
+            },
+            "6xl": {
+                maxHeight: "150px",
+            },
+            "7xl": {
+                maxHeight: "175px",
+            },
+        },
+    },
 });

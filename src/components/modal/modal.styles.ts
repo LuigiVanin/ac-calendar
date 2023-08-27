@@ -1,0 +1,48 @@
+import { css } from "../../../stitches.config";
+
+export const backdropModal = css({
+    position: "fixed",
+    inset: 0,
+    background: "rgba(0,0,0,0.1)",
+    backdropFilter: "blur(2px)",
+    zIndex: 2000,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    ".modal": {
+        position: "relative",
+        display: "flex",
+        width: "600px",
+        height: "300px",
+        maxWidth: "600px",
+        maxheight: "300px",
+        background: "$loContrast",
+        borderRadius: "$lg",
+        boxShadow: "rgba(15, 15, 15, 0.35) 0px 0px 15px",
+        padding: "20px",
+        "button.modal__close": {
+            position: "absolute",
+
+            width: "30px",
+            height: "30px",
+            display: "flex",
+            borderRadius: "$md",
+            right: "0px",
+            top: "0px",
+            color: "red",
+            alignItems: "center",
+            justifyContent: "center",
+            marginLeft: "auto",
+            marginTop: "10px",
+            marginRight: "10px",
+            background: "#ffaaaa",
+            border: "none",
+            cursor: "pointer",
+            transition: "all 0.2s ease-in-out",
+            "&:hover": {
+                background: "red",
+                color: "white",
+            },
+        },
+    },
+});

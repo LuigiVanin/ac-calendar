@@ -33,7 +33,7 @@ export const CalendarHeader = () => {
     return (
         <div className={calendarHeader()}>
             <Button
-                size={"lg"}
+                size={"md"}
                 css={customButtonStyle}
                 onClick={() => changeMonthLeft()}
             >
@@ -57,7 +57,7 @@ export const CalendarHeader = () => {
                 {month.name}
             </Text>
             <Button
-                size={"lg"}
+                size={"md"}
                 css={customButtonStyle}
                 onClick={() => changeMonthRight()}
             >

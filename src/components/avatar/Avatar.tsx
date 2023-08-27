@@ -5,9 +5,13 @@ interface Props {
     avatar: string;
 }
 
-export const Avatar: React.FC<Props> = ({ avatar }) => {
+export type StyleProps = Parameters<typeof avatarStyle>[0];
+
+export type AvatarProps = Props & StyleProps;
+
+export const Avatar: React.FC<AvatarProps> = ({ avatar, size = "md" }) => {
     return (
-        <div className={avatarStyle()}>
+        <div className={`${avatarStyle({ size })} avatar__wrapper`}>
             <img src={avatar} alt="" />
         </div>
     );
