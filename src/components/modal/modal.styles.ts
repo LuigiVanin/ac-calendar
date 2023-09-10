@@ -12,14 +12,14 @@ export const backdropModal = css({
     ".modal": {
         position: "relative",
         display: "flex",
-        width: "600px",
-        height: "300px",
+        width: "650px",
+        height: "350px",
         maxWidth: "600px",
         maxheight: "300px",
         background: "$loContrast",
         borderRadius: "$lg",
         boxShadow: "rgba(15, 15, 15, 0.35) 0px 0px 15px",
-        padding: "20px",
+        padding: "$3xl",
         "button.modal__close": {
             position: "absolute",
 
@@ -35,7 +35,7 @@ export const backdropModal = css({
             marginLeft: "auto",
             marginTop: "10px",
             marginRight: "10px",
-            background: "#ffaaaa",
+            background: "#ffcdcd",
             border: "none",
             cursor: "pointer",
             transition: "all 0.2s ease-in-out",

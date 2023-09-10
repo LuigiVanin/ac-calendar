@@ -34,12 +34,23 @@ export const dayUnit = css({
             height: "15px",
         },
     },
+
+    ".badge": {
+        background: "rgb(197, 237, 255)",
+        paddingBlock: "7px",
+        paddingInline: "10px",
+        position: "absolute",
+        borderRadius: "$sm",
+        right: "-20px",
+        top: "3px",
+        boxShadow: "0 0px 15px 5px rgba(197, 237, 255, 0.7) !important",
+    },
     variants: {
         color: {
             today: {
                 background: "#38bdf8",
                 boxShadow:
-                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);",
+                    "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
                 p: {
                     color: "$loContrast",
                 },

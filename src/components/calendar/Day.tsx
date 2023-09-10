@@ -1,7 +1,7 @@
 import moment from "moment";
 import { DayProps } from "../../types/props";
 import { Text } from "../typography";
-import { dayUnit } from "./day";
+import { dayUnit } from "./day.style";
 import { useMemo } from "react";
 import { Avatar } from "../avatar/Avatar";
 
@@ -27,12 +27,20 @@ export const CalendarDay: React.FC<DayProps> = ({ day }) => {
     const haveBirthdays = useMemo(() => !!day.getBirthdays().length, [day]);
     return (
         <span className={dayUnit({ color: variant })}>
-            {haveBirthdays && (
+            {haveBirthdays ? (
                 <ul>
                     <li>
                         <Avatar avatar={birthdaysAvatar[0]} />
                     </li>
                 </ul>
+            ) : (
+                isToday && (
+                    <div className="badge">
+                        <Text fontSizes="lg" color="blue">
+                            Hoje
+                        </Text>
+                    </div>
+                )
             )}
             <Text css={{ fontWeight: "bold" }} fontSizes="3xl">
                 {day.getDay()}

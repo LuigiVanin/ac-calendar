@@ -3,12 +3,28 @@ import { css } from "@stitches/core";
 export const text = css({
     color: "$hiContrast",
     fontSize: "$4",
-    marginTop: "$md",
+    // marginBottom: "$md",
+
+    strong: {
+        fontWeight: "bold",
+    },
     variants: {
         color: {
             normal: {
                 background: "transparent",
                 color: "$hiContrast",
+            },
+            contrast: {
+                background: "transparent",
+                color: "$loContrast",
+            },
+            blue: {
+                background: "transparent",
+                color: "#38bdf8 !important",
+            },
+            gray: {
+                background: "transparent",
+                color: "gray",
             },
         },
         fontSizes: {

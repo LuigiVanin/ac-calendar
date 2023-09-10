@@ -46,6 +46,10 @@ export const Calendar: React.FC<CalendarProps> = ({ header }) => {
         setSelectedDay(null);
     };
 
+    const daySelectHandler = (date: Day) => {
+        date.hasBirthday() && setSelectedDay(date);
+    };
+
     return (
         <>
             <CalendarFrame>
@@ -57,7 +61,7 @@ export const Calendar: React.FC<CalendarProps> = ({ header }) => {
                             <motion.li
                                 key={`${date.getDay()}-${date.getMonth()}`}
                                 layoutId={`${date.getDay()}-${date.getMonth()}`}
-                                onClick={() => setSelectedDay(date)}
+                                onClick={() => daySelectHandler(date)}
                             >
                                 <CalendarDay day={date} />
                             </motion.li>

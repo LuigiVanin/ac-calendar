@@ -1,14 +1,16 @@
 import { css } from "../../../stitches.config";
 
 export const button = css({
-    backgroundColor: "$hiContrast",
     paddingInline: "$md",
     paddingBlock: "$sm",
-    color: "$loContrast",
     borderRadius: "$sm",
     border: "none",
     cursor: "pointer",
     gap: "$sm",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "all 0.2s ease-in-out",
     variants: {
         size: {
             sm: {
@@ -21,5 +23,22 @@ export const button = css({
                 height: "55px",
             },
         },
+        color: {
+            primary: {
+                backgroundColor: "$hiContrast",
+                color: "$loContrast",
+            },
+            green: {
+                backgroundColor: "$green",
+                color: "$loContrast",
+
+                "&:hover": {
+                    backgroundColor: "$darkerGreen",
+                },
+            },
+        },
+    },
+    defaultVariants: {
+        color: "primary",
     },
 });

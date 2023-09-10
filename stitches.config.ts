@@ -14,7 +14,7 @@ export const {
             system: "system-ui",
         },
         radii: {
-            sx: "2px",
+            sx: "3px",
             sm: "5px",
             md: "10px",
             lg: "15px",
@@ -40,6 +40,8 @@ export const {
             loContrast: "white",
             secondaryColor: "#f4f4f4",
             darkerSecondaryColor: "#e2e2e2",
+            green: "rgb(60, 217, 117)",
+            darkerGreen: "rgb(50, 187, 97)",
         },
         fontSizes: {
             1: "0.5rem",

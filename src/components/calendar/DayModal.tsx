@@ -4,70 +4,15 @@ import { Modal } from "../modal/Modal";
 import { Day } from "../../modules/calendar";
 import { Avatar } from "../avatar/Avatar";
 import { Text } from "../typography";
-import { css, keyframes } from "../../../stitches.config";
 import { Button } from "../button/Button";
+import { modalBody } from "./dayModal.style";
+import { WhatsAppIcon } from "../icon/WhatsAppIcon";
+import { Badge } from "../badge/Badge";
+import moment from "moment";
 
 interface DayModalProps extends Omit<ModalProps, "children"> {
     day: Day;
 }
-
-const rotationAnimation = keyframes({
-    "0%": {
-        transform: "rotate(0deg)",
-    },
-    "100%": {
-        transform: "rotate(360deg)",
-    },
-});
-
-const modalBody = css({
-    width: "100%",
-    // background: "red",
-    ".row": {
-        display: "flex",
-        flexDirection: "row",
-        gap: "15px",
-        height: "100%",
-    },
-    ".column": {
-        display: "flex",
-        flexDirection: "column",
-        flex: 1,
-
-        button: {
-            marginTop: "auto",
-        },
-    },
-    h1: {
-        marginTop: "25px",
-        height: "auto",
-    },
-    ".modal__body__avatar-wrapper": {
-        borderRadius: "$rounded",
-        width: "185px",
-        height: "185px",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        position: "relative",
-        "&::before": {
-            content: "''",
-            position: "absolute",
-            width: "101%",
-            height: "101%",
-            borderRadius: "$rounded",
-            // background: "red",
-
-            background:
-                "linear-gradient(45deg, rgb(2, 91, 36) 0%, rgb(22, 163, 74) 20%, rgb(74, 222, 128) 50%, rgb(163, 230, 53) 100%)",
-            animation: `${rotationAnimation} 5s ease-in infinite`,
-        },
-
-        ".avatar__wrapper": {
-            zIndex: 10,
-        },
-    },
-});
 
 export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
     const [currentBirthdayIndex] = useState(0);
@@ -75,6 +20,31 @@ export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
         () => day.birthdays[currentBirthdayIndex],
         [day, currentBirthdayIndex]
     );
+
+    const todayToBirthdayDiff = useMemo(() => {
+        const today = moment();
+        const birthday = moment(
+            `${2023}-${currentBirthday.getMonth()}-${currentBirthday.getDay()}`,
+            "YYYY-MM-DD"
+        );
+        const diff = moment(birthday).diff(today, "days");
+        return diff + 1;
+    }, [currentBirthday]);
+
+    const onHappyBirthdayHandler = () => {
+        const target = "_blank";
+        const message = `
+        Parabéns ${currentBirthday.getPerson().nickname}!! 
+        Muitos anos de vida e muitas felicidades para você!!
+        Um maravilhos ${currentBirthday.getDay()}/${currentBirthday.getMonth()}/${2023}!! 
+        🥳🥳🥳🥳🥳🥳`.trim();
+        window.open(
+            `https://wa.me/${
+                currentBirthday.getPerson().phone
+            }?text=${message}`,
+            target
+        );
+    };
 
     return (
         <Modal {...props}>
@@ -91,14 +61,41 @@ export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
                             <Text as="h1" fontSizes={"2xl"}>
                                 {currentBirthday.getPerson().name}
                             </Text>
-                            <Text as="h2" fontSizes={"lg"}>
+                            <Text as="h2" fontSizes={"lg"} color="gray">
                                 (Nickname:{" "}
                                 {currentBirthday.getPerson().nickname})
                             </Text>
                         </div>
-                        <Button size={"lg"}>
-                            De Parabens para{" "}
-                            {currentBirthday.getPerson().nickname}
+                        <span className="line" />
+
+                        <div className="modal__body__birthday">
+                            <Text fontSizes="xl" as="span">
+                                Aniversário:{" "}
+                                <strong>
+                                    {String(currentBirthday.getDay()).padStart(
+                                        2,
+                                        "0"
+                                    )}
+                                    /
+                                    {String(
+                                        currentBirthday.getMonth()
+                                    ).padStart(2, "0")}
+                                </strong>
+                            </Text>
+                            <Badge size="sm">
+                                Em {todayToBirthdayDiff} dias
+                            </Badge>
+                        </div>
+                        <Button
+                            size="lg"
+                            color="green"
+                            onClick={onHappyBirthdayHandler}
+                        >
+                            <WhatsAppIcon size="25" color="white" />
+                            <Text css={{ color: "white !important" }}>
+                                De parabéns para{" "}
+                                {currentBirthday.getPerson().nickname}
+                            </Text>
                         </Button>
                     </div>
                 </div>

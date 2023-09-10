@@ -24,6 +24,10 @@ export class Day extends CalendarUnit {
         this.birthdays.push(birthday);
     }
 
+    hasBirthday() {
+        return this.birthdays.length > 0;
+    }
+
     getCurrentDiffDays(day?: Date) {
         const today = day || new Date();
         const date1 = moment(today);
