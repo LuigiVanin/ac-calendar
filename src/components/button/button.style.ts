@@ -11,6 +11,14 @@ export const button = css({
     alignItems: "center",
     justifyContent: "center",
     transition: "all 0.2s ease-in-out",
+
+    "&:disabled": {
+        backgroundColor: "$disabledColor",
+        "&:hover": {
+            backgroundColor: "$disabledColor",
+        },
+        cursor: "not-allowed",
+    },
     variants: {
         size: {
             sm: {

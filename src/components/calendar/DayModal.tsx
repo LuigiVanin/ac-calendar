@@ -14,6 +14,11 @@ interface DayModalProps extends Omit<ModalProps, "children"> {
     day: Day;
 }
 
+interface DateDiffObject {
+    label: string;
+    type: "sucess" | "info" | "danger";
+}
+
 export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
     const [currentBirthdayIndex] = useState(0);
     const currentBirthday = useMemo(
@@ -27,9 +32,29 @@ export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
             `${2023}-${currentBirthday.getMonth()}-${currentBirthday.getDay()}`,
             "YYYY-MM-DD"
         );
+        if (today.isSame(birthday, "day")) return 0;
         const diff = moment(birthday).diff(today, "days");
         return diff + 1;
     }, [currentBirthday]);
+
+    const dateDiffObject = useMemo((): DateDiffObject => {
+        if (!todayToBirthdayDiff) {
+            return {
+                label: "Hoje",
+                type: "sucess",
+            };
+        } else if (todayToBirthdayDiff < 0) {
+            return {
+                label: "Já passou!",
+                type: "danger",
+            };
+        } else {
+            return {
+                label: `Em ${todayToBirthdayDiff} dias`,
+                type: "info",
+            };
+        }
+    }, [todayToBirthdayDiff]);
 
     const onHappyBirthdayHandler = () => {
         const target = "_blank";
@@ -82,14 +107,15 @@ export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
                                     ).padStart(2, "0")}
                                 </strong>
                             </Text>
-                            <Badge size="sm">
-                                Em {todayToBirthdayDiff} dias
+                            <Badge size="sm" color={dateDiffObject.type}>
+                                {dateDiffObject.label}
                             </Badge>
                         </div>
                         <Button
                             size="lg"
                             color="green"
                             onClick={onHappyBirthdayHandler}
+                            disabled={!!todayToBirthdayDiff}
                         >
                             <WhatsAppIcon size="25" color="white" />
                             <Text css={{ color: "white !important" }}>

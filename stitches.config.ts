@@ -42,6 +42,7 @@ export const {
             darkerSecondaryColor: "#e2e2e2",
             green: "rgb(60, 217, 117)",
             darkerGreen: "rgb(50, 187, 97)",
+            disabledColor: "#dedede",
         },
         fontSizes: {
             1: "0.5rem",
@@ -61,6 +62,7 @@ export const light = createTheme("light-theme", {
         loContrast: "white",
         secondaryColor: "#f4f4f4",
         darkerSecondaryColor: "#e2e2e2",
+        disabledColor: "#dedede",
     },
 });
 
@@ -70,6 +72,7 @@ export const dark = createTheme("dark-theme", {
         loContrast: "#222",
         secondaryColor: "rgb(50, 50, 50)",
         darkerSecondaryColor: "#121212",
+        disabledColor: "rgb(191, 191, 191)",
     },
 });
 

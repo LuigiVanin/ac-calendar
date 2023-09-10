@@ -1,37 +1,6 @@
 import React from "react";
 import { Props } from "../../types/props";
-import { css } from "../../../stitches.config";
-
-const badge = css({
-    display: "inline-flex",
-    background: "red",
-    variants: {
-        size: {
-            sm: {
-                paddingBlock: "$md",
-                paddingInline: "$md",
-                borderRadius: "$sm",
-                fontSize: "$3",
-            },
-            md: {
-                paddingBlock: "$md",
-                paddingInline: "$lg",
-                borderRadius: "$sm",
-                fontSize: "$4",
-            },
-        },
-        color: {
-            info: {
-                background: "rgb(226, 246, 255)",
-                color: "#38bdf8",
-            },
-        },
-    },
-    defaultVariants: {
-        size: "sm",
-        color: "info",
-    },
-});
+import { badge } from "./badge.style";
 
 type BadgeStyleProps = Parameters<typeof badge>[0] & Props;
 

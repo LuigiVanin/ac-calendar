@@ -67,7 +67,7 @@ export const modalBody = css({
 
             background:
                 "linear-gradient(45deg, rgb(2, 91, 36) 0%, rgb(22, 163, 74) 20%, rgb(74, 222, 128) 50%, rgb(163, 230, 53) 100%)",
-            animation: `${rotationAnimation} 5s ease-in infinite`,
+            animation: `${rotationAnimation} 3s ease-in infinite`,
         },
 
         ".avatar__wrapper": {
