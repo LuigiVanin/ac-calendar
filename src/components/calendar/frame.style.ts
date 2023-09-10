@@ -1,4 +1,4 @@
-import { keyframes } from "@stitches/core";
+// import { keyframes } from "@stitches/core";
 import { css } from "../../../stitches.config";
 
 // const shineEffect = keyframes({
