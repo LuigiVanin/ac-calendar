@@ -2,7 +2,7 @@ import { useCalendar } from "../../hooks/useCalendar";
 import { CalendarFrame } from "./Frame";
 import { CalendarDay } from "./Day";
 import { css } from "../../../stitches.config";
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { motion } from "framer-motion";
 import { Day } from "../../modules/calendar";
@@ -10,9 +10,6 @@ import { DayModal } from "./DayModal";
 
 const ul = css({
     display: "grid",
-    // flexDirection: "row",
-    // flexWrap: "wrap",
-    // gap: "$md",
     gridTemplateColumns: `
             minmax(45px, 1fr)
             minmax(45px, 1fr)
@@ -39,6 +36,15 @@ interface CalendarProps {
 export const Calendar: React.FC<CalendarProps> = ({ header }) => {
     const { month } = useCalendar();
     const [parent] = useAutoAnimate();
+
+    useEffect(() => {
+        for (const day of month.days) {
+            if (day.hasBirthday() && !day.getCurrentDiffDays()) {
+                console.log(day);
+                setSelectedDay(day);
+            }
+        }
+    }, []);
 
     const [selectedDay, setSelectedDay] = useState<Day | null>(null);
 

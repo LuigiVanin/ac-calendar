@@ -9,6 +9,7 @@ import { modalBody } from "./dayModal.style";
 import { WhatsAppIcon } from "../icon/WhatsAppIcon";
 import { Badge } from "../badge/Badge";
 import moment from "moment";
+import ConfettiExplosion from "react-confetti-explosion";
 
 interface DayModalProps extends Omit<ModalProps, "children"> {
     day: Day;
@@ -73,6 +74,13 @@ export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
 
     return (
         <Modal {...props}>
+            {!todayToBirthdayDiff && (
+                <ConfettiExplosion
+                    zIndex={1000}
+                    duration={3000}
+                    particleCount={50}
+                />
+            )}
             <div className={modalBody()}>
                 <div className="row">
                     <div className="modal__body__avatar-wrapper">
@@ -126,6 +134,13 @@ export const DayModal: React.FC<DayModalProps> = ({ day, ...props }) => {
                     </div>
                 </div>
             </div>
+            {!todayToBirthdayDiff && (
+                <ConfettiExplosion
+                    zIndex={1000}
+                    duration={3000}
+                    particleCount={50}
+                />
+            )}
         </Modal>
     );
 };

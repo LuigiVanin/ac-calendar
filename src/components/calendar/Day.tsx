@@ -9,6 +9,9 @@ export const CalendarDay: React.FC<DayProps> = ({ day }) => {
     const isToday = useMemo(() => day.date.isSame(moment(), "day"), [day]);
 
     const variant = useMemo(() => {
+        if (day.birthdays.length && isToday) {
+            return "today-birthday";
+        }
         if (day.birthdays.length) {
             return "birthday";
         }
@@ -41,6 +44,13 @@ export const CalendarDay: React.FC<DayProps> = ({ day }) => {
                         </Text>
                     </div>
                 )
+            )}
+            {haveBirthdays && isToday && (
+                <div className="badge left">
+                    <Text fontSizes="lg" color="blue">
+                        Hoje
+                    </Text>
+                </div>
             )}
             <Text css={{ fontWeight: "bold" }} fontSizes="3xl">
                 {day.getDay()}
