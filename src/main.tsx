@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import { ThemeProvider } from "./context/ThemeContext.tsx";
-import "./index.css";
+import "./styles/index.css";
 import { CalendarProvider } from "./context/CalendarContext.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

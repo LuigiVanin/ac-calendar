@@ -1,5 +1,5 @@
-import "./reset.css";
-import "./App.css";
+import "./styles/reset.css";
+import "./styles/App.css";
 import { Calendar } from "./components/calendar";
 import { css } from "../stitches.config";
 import { BlobWrapper } from "./components/blob/BlobWrapper";

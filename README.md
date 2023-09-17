@@ -1,27 +1,62 @@
-# React + TypeScript + Vite
+# AC Calendar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição 📕
 
-Currently, two official plugins are available:
+AC Calendar is a simple application to show the birthday of a group of friends(A.C.) a mine. This application features for now only a calendar with the birthdays and the current day of the year with the respective day of the week. You can click on the day to see the birthdays of that day and the person information and even send your "Happy Birthday" via WhatsApp clicking on the green button.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h3 align="center">
 
-## Expanding the ESLint configuration
+<a href="ac-calendar.vercel.app" />
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+«Acessar Website»
 
-- Configure the top-level `parserOptions` property like this:
+</a>
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+</h3>
+
+<br>
+
+## Preview 👓
+
+<p align="center">
+<img src="./assets/Ac-Calendar-—-Mozilla-Firefox-2023-09-17-19-25-38.gif" width="650"/>
+</p>
+
+<br>
+
+## Como Rodar 🚀
+
+Para rodar em desenvolvimento basta baixar os arquivos do projeto via zip ou `git clone`. Após isso basta baixar as dependências e rodar o código em desenvolvimento:
+
+```bash
+> npm i
+> npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<br>
+
+## Todo ✅
+
+-   [ ] Adicionar documentação com Storebook
+-   [ ] Adicionar tema no local storage
+-   [ ] Adicionar testes de componentes
+
+<br>
+
+## Tools 🛠
+
+<p align="center">
+<img src="./assets/stack-items.svg" width="300"/>
+</p>
+
+## Entre em contato 📞
+
+<br>
+
+<p align="center">
+<a href="https://www.linkedin.com/in/luis-felipe-vanin-martins-5a5b38215">
+<img src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=blue">
+</a>
+<a href="mailto:luisfvanin2@gmail.com">
+<img src="https://img.shields.io/badge/Gmail:%20luisfvanin2@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white">
+</a>

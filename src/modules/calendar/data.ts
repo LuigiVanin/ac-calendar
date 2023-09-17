@@ -16,11 +16,19 @@ export const birthdays: Birthday[] = [
         avatar: "https://avatars.githubusercontent.com/u/49759902?v=4",
     }),
     new Birthday({
+        name: "Agente M",
+        nickname: "Misigno",
+        birthday: "1999-09-17",
+        email: "vanin@gmail.com",
+        phone: "558494717742",
+        avatar: "https://avatars.githubusercontent.com/u/102266350?v=4",
+    }),
+    new Birthday({
         name: "Pablo Taxista",
         nickname: "Pablox",
         birthday: "2003-04-07",
         email: "vanin@gmail.com",
-        phone: "558494717742",
+        phone: "558481174419",
         avatar: PabloAvatarUrl,
     }),
     new Birthday({
@@ -36,7 +44,7 @@ export const birthdays: Birthday[] = [
         nickname: "Well",
         birthday: "2004-05-04",
         email: "vanin@gmail.com",
-        phone: "558494717742",
+        phone: "558499704365",
         avatar: "https://avatars.githubusercontent.com/u/102266350?v=4",
     }),
     new Birthday({
@@ -44,7 +52,7 @@ export const birthdays: Birthday[] = [
         nickname: "Paul",
         birthday: "2004-11-18",
         email: "vanin@gmail.com",
-        phone: "558494717742",
+        phone: "558492328521",
         avatar: PauloAvatarUrl,
     }),
     new Birthday({
@@ -52,7 +60,7 @@ export const birthdays: Birthday[] = [
         nickname: "Bellix",
         birthday: "1999-08-07",
         email: "pedrorola@gmail.com",
-        phone: "999999999",
+        phone: "558494717742",
         avatar: PedroAvatarUrl,
     }),
     new Birthday({
@@ -68,7 +76,7 @@ export const birthdays: Birthday[] = [
         nickname: "Neto",
         birthday: "2002-10-29",
         email: "pedrorola@gmail.com",
-        phone: "999999999",
+        phone: "558492202670",
         avatar: NetoAvatarUrl,
     }),
 ];
