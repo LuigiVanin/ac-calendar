@@ -15,7 +15,7 @@ export const header = css({
         gap: "$lg",
     },
     h1: {
-        marginTop: "0px",
+        marginBlock: "0px",
         display: "flex",
         alignItems: "center",
         gap: "$sm",

@@ -1,7 +1,6 @@
 import { css } from "../../../stitches.config";
 
 export const button = css({
-    paddingInline: "$md",
     paddingBlock: "$sm",
     borderRadius: "$sm",
     border: "none",
@@ -23,12 +22,21 @@ export const button = css({
         size: {
             sm: {
                 height: "25px",
+                fontSize: "$2",
+                paddingInline: "$md",
             },
             md: {
                 height: "40px",
+                fontSize: "$3",
+                paddingInline: "$lg",
             },
             lg: {
                 height: "55px",
+                fontSize: "$4",
+                paddingInline: "$xl",
+            },
+            auto: {
+                paddingInline: "$md",
             },
         },
         color: {
@@ -48,5 +56,6 @@ export const button = css({
     },
     defaultVariants: {
         color: "primary",
+        size: "auto",
     },
 });
