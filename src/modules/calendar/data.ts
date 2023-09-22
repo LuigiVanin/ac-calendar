@@ -5,6 +5,7 @@ import BetoAvatarUrl from "../../assets/avatars/beto-maconha.jpg";
 import NetoAvatarUrl from "../../assets/avatars/neto-junior.jpg";
 import PabloAvatarUrl from "../../assets/avatars/pablo-taxista.jpg";
 import PauloAvatarUrl from "../../assets/avatars/paulo-demonio-amarelo.jpeg";
+import MikaelAvatarUrl from "../../assets/avatars/Mikas-de-duda.jpg";
 
 export const birthdays: Birthday[] = [
     new Birthday({
@@ -78,5 +79,13 @@ export const birthdays: Birthday[] = [
         email: "pedrorola@gmail.com",
         phone: "558492202670",
         avatar: NetoAvatarUrl,
+    }),
+    new Birthday({
+        name: "Mikael",
+        nickname: "Mikas",
+        birthday: "2001-10-08",
+        email: "pedrorola@gmail.com",
+        phone: "558492202670",
+        avatar: MikaelAvatarUrl,
     }),
 ];

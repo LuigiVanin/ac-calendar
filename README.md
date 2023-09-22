@@ -39,6 +39,8 @@ Para rodar em desenvolvimento basta baixar os arquivos do projeto via zip ou `gi
 
 -   [ ] Adicionar documentação com Storebook
 -   [ ] Adicionar tema no local storage
+-   [ ] Adicionar temas no storebook
+-   [ ] Converter Svg em componentes React
 -   [ ] Adicionar testes de componentes
 
 <br>
