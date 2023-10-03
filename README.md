@@ -14,8 +14,6 @@ AC Calendar is a simple application to show the birthday of a group of friends(A
 
 </h3>
 
-<br>
-
 ## Preview 👓
 
 <p align="center">
